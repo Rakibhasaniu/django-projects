@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('first/', include('first_app.urls')),
     path('first/', include('new_app.urls')),
-    path('',views.base)
+    path('',views.home)
 ]
