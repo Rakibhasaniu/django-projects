@@ -5,7 +5,7 @@
  </div>
  {% endblock %}
  {% block food %}
- <div>
+ <div class="container d-flex gap-5 flex-wrap " >
     {% for i in meals %}
     <div class="card" style="width: 18rem;">
         <img src="{{i.strMealThumb}}" class="card-img-top" alt="...">
