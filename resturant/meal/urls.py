@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
     
-   path('items/',views.meals)
+    
+   path('',views.meals)
 
 ]
