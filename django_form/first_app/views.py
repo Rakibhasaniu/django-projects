@@ -6,3 +6,7 @@ def home(request):
 
 def about(request):
     return render(request,'about.html')
+
+def submit_form(request):
+    print(request.POST)
+    return render(request,'form.html')
