@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>This Is Home Page</h1>
+    {% if data %}
     {{data}}
+    {% else %}
+    <h1>No Data In Database</h1>
+    {% endif %}
 </body>
 </html>
