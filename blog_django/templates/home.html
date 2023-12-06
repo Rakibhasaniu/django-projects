@@ -16,10 +16,11 @@
 
                 {% for cat in post.category.all %}
                 
-                <button class="btn btn-warning disabled m-2">{{cat.name}}</button>
+                <button class="btn btn-primary disabled m-2 btn-sm">{{cat.name}}</button>
                 {% endfor %}
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'edit_post' post.id %}" class="btn btn-danger">Delete</a>
           </div>
         </div>
       </div>
