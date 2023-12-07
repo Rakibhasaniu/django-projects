@@ -1,6 +1,14 @@
 
-from django.urls import path
+# from django.urls import path
+# from . import views
+# urlpatterns = [
+#     path('add/', views.add_category, name='add_category')
+# ]
+
+
+from django.urls import path , include
 from . import views
 urlpatterns = [
-    # path('taskcategory/', views.add_category, name='add_category')
+    
+    path('add/',views.add_category, name='add_category')
 ]
