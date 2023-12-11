@@ -21,7 +21,7 @@
               </li>
             
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'add_author'%}">Add_author</a>
+                <a class="nav-link" href="{% url 'register'%}">Add_author</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'add_category' %}">Add_category</a>
@@ -33,10 +33,14 @@
               
               
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class='d-flex text-white text-decoration-none'>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register'%}">Sign_Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register'%}">Login</a>
+              </li>
+            </div>
           </div>
         </div>
       </nav>
