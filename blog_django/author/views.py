@@ -1,5 +1,6 @@
 from django.shortcuts import render , redirect
 from . import forms
+from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 # def add_author(request):
 #     if request.method == 'POST':
@@ -23,3 +24,5 @@ def register(request):
             register_form = forms.RegistrationForm()
         return render(request,'register.html',
         {'form': register_form})
+def user_login(request):
+      if request.method == 'POST'
