@@ -1,8 +1,9 @@
 from django.shortcuts import render , redirect
 from . import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm,UserChangeForm
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 # def add_author(request):
 #     if request.method == 'POST':
@@ -37,10 +38,24 @@ def user_login(request):
                 if user is not None:
                      messages.success(request,'Account login successfully')
                      login(request,user)
-                     return redirect('register')
+                     return redirect('profile')
                 else:
                      messages.warning(request,'Login Denied')
                      return redirect('register')
       else:
            form = AuthenticationForm()
            return render(request,'register.html',{'form': form ,'type': 'Login'})
+      
+
+@login_required
+def profile(request):
+     if request.method == 'POST':
+            profile_form = forms.ChangeUserData(request.POST,instance = request.user)
+            if profile_form.is_valid():
+                profile_form.save()
+                messages.success(request,'Updated data successfully')
+                return redirect('profile')
+     else:
+          profile_form = forms.ChangeUserData(instance = request.user)
+     return render(request,'profile.html',
+          {'form': profile_form})
