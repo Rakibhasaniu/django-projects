@@ -5,6 +5,7 @@ from django.contrib.auth.forms import  AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login , update_session_auth_hash, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from post.models import Post
 # from posts.models import Post
 # Create your views here.
 
@@ -60,6 +61,10 @@ def user_logout(request):
 
 @login_required
 def profile(request):
+     data = Post.objects.all()
+     return render(request,'profile.html',{'data': data})
+@login_required
+def edit_profile(request):
      if request.method == 'POST':
             profile_form = forms.ChangeUserData(request.POST,instance = request.user)
             if profile_form.is_valid():
@@ -68,5 +73,5 @@ def profile(request):
                 return redirect('profile')
      else:
           profile_form = forms.ChangeUserData(instance = request.user)
-     return render(request,'profile.html',
+     return render(request,'update_profile.html',
           {'form': profile_form})

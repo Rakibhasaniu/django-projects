@@ -19,8 +19,8 @@
                 <button class="btn btn-primary disabled m-2 btn-sm">{{cat.name}}</button>
                 {% endfor %}
             </p>
-            <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+            {% comment %} <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a> {% endcomment %}
           </div>
         </div>
       </div>
