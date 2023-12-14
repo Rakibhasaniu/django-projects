@@ -7,7 +7,8 @@ def add_post(request):
     if request.method == 'POST': # user post request koreche
         post_form = forms.PostForm(request.POST) # user er post request data ekhane capture korlam
         if post_form.is_valid(): # post kora data gula amra valid kina check kortechi
-            post_form.cleaned_data['author'] =request.user
+            # post_form.cleaned_data['author'] =request.user
+            post_form.instance.author = request.user
             post_form.save() # jodi data valid hoy taile database e save korbo
             return redirect('add_post') # sob thik thakle take add author ei url e pathiye dibo
     
